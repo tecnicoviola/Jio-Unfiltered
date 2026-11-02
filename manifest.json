@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "Jio Unfiltered",
+  "version": "1.0.0",
+  "description": "See the value. Skip the hype. Evidence-based plan comparison and decluttered transparency for Jio prepaid recharges.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.jio.com/selfcare/plans/mobility/prepaid-plans-list/",
+        "https://www.jio.com/selfcare/plans/mobility/prepaid-plans-list/?*",
+        "https://www.jio.com/selfcare/plans/mobility/prepaid-plans-list/#*",
+        "https://www.jio.com/selfcare/plans/mobility/prepaid-plans-list",
+        "https://www.jio.com/selfcare/plans/mobility/prepaid-plans-list?*",
+        "https://www.jio.com/selfcare/plans/mobility/prepaid-plans-list#*"
+      ],
+      "js": [
+        "src/models/plan.js",
+        "src/extractors/normalizer.js",
+        "src/identity/deduplicator.js",
+        "src/evidence/evidenceStore.js",
+        "src/scoring/valueScore.js",
+        "src/scoring/transparencyScore.js",
+        "src/scoring/categoryScorer.js",
+        "src/recommendations/topRecommendations.js",
+        "src/recommendations/bestForNeeds.js",
+        "src/data/baselinePlans.js",
+        "src/extractors/apiExtractor.js",
+        "src/extractors/domExtractor.js",
+        "src/ui/evidenceModal.js",
+        "src/ui/cardRenderer.js",
+        "src/ui/topRecommendationsView.js",
+        "src/ui/bestForNeedsView.js",
+        "src/ui/sidebar.js",
+        "src/content.js"
+      ],
+      "css": [
+        "src/styles/extension.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "Jio Unfiltered"
+  }
+}

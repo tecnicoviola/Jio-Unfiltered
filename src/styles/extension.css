@@ -1,0 +1,1443 @@
+/**
+ * Jio Unfiltered — Extension Stylesheet
+ * Strict adherence to Jio's native design tokens, single-column spacious cards,
+ * verified heading typography (.j-text-heading-xs), and card highlighting.
+ */
+
+:root {
+  --jio-brand-blue: #0f3cc9;
+  --jio-brand-blue-hover: #0b2ea3;
+  --jio-blue-light: #e7ebf8;
+  --jio-blue-border: #c8d4f4;
+  --jio-text-dark: #141414;
+  --jio-text-muted: #595959;
+  --jio-border-gray: #e0e0e0;
+  --jio-bg-gray: #f7f9fc;
+}
+
+/* ==================== 1. SIDEBAR INTEGRATION ==================== */
+.jio-extension-nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: JioType, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  color: var(--color-primary-grey-80, #595959) !important;
+  background-color: #ffffff !important;
+  border: 0 !important;
+  border-bottom: 1px solid #e0e0e0 !important;
+  border-left: 0 !important; /* NO left colored edge */
+  border-right: 0 !important;
+  padding: 0.85rem 1rem 0.75rem 1rem !important;
+  min-height: 50px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  cursor: pointer !important;
+  text-align: left !important;
+  line-height: 1.35 !important;
+  transition: none !important;
+}
+
+.jio-extension-nav-item span {
+  display: inline-block;
+  transform: translateY(2px); /* Lower text to align with Popular Plans */
+}
+
+/* NO HOVER EFFECT for extension categories */
+.jio-extension-nav-item:hover {
+  background-color: #ffffff !important;
+  color: var(--color-primary-grey-80, #595959) !important;
+}
+
+/* Active Category: Bold Black Text, #e7ebf8 Background, NO Left Colored Edge */
+.jio-extension-nav-item.jio-active-nav,
+.jio-extension-nav-item.desktop_selected__2iKEU,
+.desktop_btnCss__1HAJ3.desktop_selected__2iKEU {
+  background-color: #e7ebf8 !important;
+  color: #141414 !important;
+  font-weight: 700 !important;
+  border-left: 0 !important;
+  outline: none !important;
+}
+
+/* Sharp edge for Popular Plans and all following buttons */
+.desktop_btnCss__1HAJ3:not(#jio-nav-top-recommendations):not(:last-child) {
+  border-radius: 0 !important;
+}
+
+#jio-nav-best-needs {
+  border-radius: 0 !important;
+}
+
+#jio-nav-top-recommendations {
+  border-top-left-radius: 0.75rem !important;
+  border-top-right-radius: 0.75rem !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+/* ==================== 2. ZERO-OFFSET ROOT VIEW CONTAINER & UNIFIED HEADING ==================== */
+#jio-intelligence-view-container {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.jio-recommendations-container,
+.jio-needs-view-container {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.jio-view-header-row {
+  display: flex !important;
+  align-items: center !important;
+  margin-top: 5px !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.jio-clean-heading,
+.jio-view-header-row h1,
+.jio-view-header-row .Filter04_category__S_DXu,
+.jio-recommendations-container h1,
+.jio-needs-view-container h1 {
+  font-family: JioType, helvetica, arial, sans-serif !important;
+  font-weight: 900 !important;
+  text-transform: none !important;
+  font-size: 1.5rem !important;
+  letter-spacing: -0.72px !important;
+  line-height: 1.1666666667 !important;
+  color: var(--color-primary-grey-100, #141414) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* ==================== 3. TWO-COLUMN EQUAL-HEIGHT RECOMMENDATION CARDS ==================== */
+.jio-cards-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 1.25rem !important;
+  width: 100% !important;
+  margin-top: 1rem !important;
+  margin-bottom: 2.5rem !important;
+  box-sizing: border-box !important;
+}
+
+@media (max-width: 768px) {
+  .jio-cards-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.jio-card-wrapper {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.jio-rec-card-body {
+  background-color: var(--color-primary-20, #e7ebf8) !important;
+  border: 1px solid var(--color-primary-grey-40, #dce5f8) !important;
+  border-radius: 1rem !important;
+  padding: 1.25rem 1.4rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+  box-shadow: 0 2px 8px rgba(15, 60, 201, 0.04) !important;
+}
+
+/* Card Top Row */
+.jio-card-top-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 0.85rem !important;
+  gap: 0.5rem !important;
+  min-height: 28px !important;
+  width: 100% !important;
+}
+
+.jio-card-badge-col {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.jio-card-rec-badge {
+  background-color: rgb(15, 60, 201) !important;
+  color: #ffffff !important;
+  font-family: JioType, helvetica, arial, sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em !important;
+  padding: 0.25rem 0.65rem !important;
+  border-radius: 6px !important;
+  display: inline-block !important;
+  white-space: nowrap !important;
+  line-height: 1.2 !important;
+}
+
+.jio-badge-placeholder {
+  visibility: hidden !important;
+}
+
+.jio-card-scores-col {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.45rem !important;
+  white-space: nowrap !important;
+}
+
+/* Price Section */
+.jio-card-price-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-bottom: 0.85rem !important;
+  width: 100% !important;
+}
+
+.jio-price-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.15rem !important;
+}
+
+.jio-card-price {
+  font-family: JioType, helvetica, arial, sans-serif !important;
+  font-size: 2.125rem !important;
+  font-weight: 900 !important;
+  color: var(--color-primary-grey-100, #141414) !important;
+  line-height: 1 !important;
+  letter-spacing: -0.02em !important;
+}
+
+.jio-card-rates-group {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  padding-left: 0.95rem !important;
+  border-left: 1.5px solid var(--color-primary-grey-40, #dce5f8) !important;
+  gap: 0.2rem !important;
+}
+
+.jio-card-daily-cost {
+  font-family: JioType, sans-serif !important;
+  font-size: 0.938rem !important;
+  font-weight: 800 !important;
+  color: #0f3cc9 !important;
+  line-height: 1.15 !important;
+  white-space: nowrap !important;
+}
+
+.jio-card-monthly-cost {
+  font-family: JioType, sans-serif !important;
+  font-size: 0.813rem !important;
+  font-weight: 600 !important;
+  color: var(--color-primary-grey-80, #596780) !important;
+  line-height: 1.15 !important;
+  white-space: nowrap !important;
+}
+
+.jio-card-chevron-btn {
+  background: transparent !important;
+  border: 0 !important;
+  color: #0f3cc9 !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 24px !important;
+  height: 24px !important;
+  transition: transform 0.15s ease !important;
+}
+
+.jio-card-chevron-btn:hover {
+  transform: translateX(2px) !important;
+}
+
+.jio-card-chevron-svg {
+  width: 20px !important;
+  height: 20px !important;
+  display: block !important;
+}
+
+/* Subtle Divider */
+.jio-card-divider,
+.jio-native-divider {
+  border: none !important;
+  border-top: 1px solid var(--color-primary-grey-40, #dce5f8) !important;
+  margin: 0.65rem 0 0.75rem 0 !important;
+  width: 100% !important;
+  height: 0 !important;
+  display: block !important;
+}
+
+/* 4-Column Specs Grid */
+.jio-card-specs-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 0.5rem !important;
+  margin-bottom: 0.75rem !important;
+  padding-bottom: 0.75rem !important;
+  border-bottom: 1px solid var(--color-primary-grey-40, #dce5f8) !important;
+  width: 100% !important;
+  height: 56px !important;
+  min-height: 56px !important;
+  max-height: 56px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+.jio-spec-col {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.15rem !important;
+  min-width: 0 !important;
+}
+
+.jio-spec-col .jio-stat-label {
+  font-family: JioType, sans-serif !important;
+  font-size: 0.75rem !important;
+  color: var(--color-primary-grey-80, #596780) !important;
+  font-weight: 500 !important;
+  white-space: nowrap !important;
+}
+
+.jio-spec-col .jio-stat-val {
+  font-family: JioType, sans-serif !important;
+  font-size: 0.875rem !important;
+  font-weight: 700 !important;
+  color: var(--color-primary-grey-100, #141414) !important;
+  line-height: 1.2 !important;
+  white-space: normal !important;
+  word-break: break-word !important;
+}
+
+.jio-stat-sub {
+  font-family: JioType, sans-serif !important;
+  font-size: 0.688rem !important;
+  color: #0f3cc9 !important;
+  font-weight: 600 !important;
+  margin-top: 0.1rem !important;
+}
+
+/* Subscriptions & Available Rows (Consistent Fixed Heights across Cards) */
+.jio-card-meta-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.65rem !important;
+  margin-bottom: 0.75rem !important;
+  height: 28px !important;
+  min-height: 28px !important;
+  max-height: 28px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+.jio-card-subs-row {
+  height: 28px !important;
+  min-height: 28px !important;
+  max-height: 28px !important;
+}
+
+.jio-card-avail-row {
+  height: 56px !important;
+  min-height: 56px !important;
+  max-height: 56px !important;
+  align-items: flex-start !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.jio-card-avail-row .jio-section-label {
+  padding-top: 0.25rem !important;
+}
+
+.jio-section-label {
+  font-family: JioType, sans-serif !important;
+  font-size: 0.781rem !important;
+  color: var(--color-primary-grey-80, #596780) !important;
+  font-weight: 600 !important;
+  white-space: nowrap !important;
+  min-width: 82px !important;
+}
+
+.jio-pill-cluster {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  gap: 0.4rem !important;
+  align-items: center !important;
+  overflow: hidden !important;
+}
+
+.jio-avail-cluster {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.35rem 0.45rem !important;
+  align-items: center !important;
+  max-height: 56px !important;
+  overflow: hidden !important;
+}
+
+.jio-sub-pill {
+  background-color: #ffffff !important;
+  border: 1px solid var(--color-primary-grey-40, #dce5f8) !important;
+  color: #141414 !important;
+  font-family: JioType, sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  padding: 0.2rem 0.65rem !important;
+  border-radius: 12px !important;
+  white-space: nowrap !important;
+}
+
+.jio-empty-pill {
+  color: var(--color-primary-grey-80, #596780) !important;
+  font-family: JioType, sans-serif !important;
+  font-size: 0.813rem !important;
+  font-weight: 600 !important;
+  padding: 0.15rem 0.25rem !important;
+  display: inline-block !important;
+}
+
+.jio-pill-more,
+.jio-cat-more {
+  background-color: #ffffff !important;
+  border: 1px solid #c8d4f4 !important;
+  color: #0f3cc9 !important;
+  font-family: JioType, sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  padding: 0.2rem 0.6rem !important;
+  border-radius: 12px !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  transition: all 0.15s ease !important;
+}
+
+.jio-pill-more:hover,
+.jio-cat-more:hover {
+  background-color: #0f3cc9 !important;
+  color: #ffffff !important;
+  border-color: #0f3cc9 !important;
+}
+
+.jio-cat-pill {
+  background-color: #ffffff !important;
+  border: 1px solid #c8d4f4 !important;
+  color: #0f3cc9 !important;
+  font-family: JioType, sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  padding: 0.2rem 0.65rem !important;
+  border-radius: 14px !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  transition: all 0.15s ease !important;
+}
+
+.jio-cat-pill:hover {
+  background-color: #0f3cc9 !important;
+  color: #ffffff !important;
+  border-color: #0f3cc9 !important;
+}
+
+/* Rationale Box (Consistent 52px Height across Cards) */
+.jio-card-rationale-box {
+  background-color: #ffffff !important;
+  border: 1px solid var(--color-primary-grey-40, #dce5f8) !important;
+  border-radius: 8px !important;
+  padding: 0.65rem 0.85rem !important;
+  margin-bottom: 0.75rem !important;
+  height: 52px !important;
+  min-height: 52px !important;
+  max-height: 52px !important;
+  display: flex !important;
+  align-items: center !important;
+  box-sizing: border-box !important;
+  cursor: pointer !important;
+  overflow: hidden !important;
+}
+
+.jio-card-insight-text {
+  font-family: JioType, sans-serif !important;
+  font-size: 0.813rem !important;
+  color: #1e3a8a !important;
+  line-height: 1.35 !important;
+  margin: 0 !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+/* Bottom Action Buttons */
+.jio-card-actions-row {
+  margin-top: auto !important;
+  padding-top: 0.85rem !important;
+  display: flex !important;
+  gap: 0.75rem !important;
+  width: 100% !important;
+}
+
+.jio-card-buy-btn {
+  flex: 1 !important;
+  background-color: #0f3cc9 !important;
+  color: #ffffff !important;
+  border: 0 !important;
+  border-radius: 20px !important;
+  padding: 0.65rem 1rem !important;
+  font-family: JioType, sans-serif !important;
+  font-size: 0.875rem !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  text-align: center !important;
+  height: 42px !important;
+  min-height: 42px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: background-color 0.15s ease !important;
+}
+
+.jio-card-buy-btn:hover {
+  background-color: #0b2ea3 !important;
+  color: #ffffff !important;
+}
+
+.jio-card-btn-evidence {
+  flex: 1 !important;
+  background-color: #ffffff !important;
+  color: #0f3cc9 !important;
+  border: 1px solid #0f3cc9 !important;
+  border-radius: 20px !important;
+  padding: 0.65rem 0.75rem !important;
+  font-family: JioType, sans-serif !important;
+  font-size: 0.813rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  text-align: center !important;
+  height: 42px !important;
+  min-height: 42px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.15s ease !important;
+}
+
+.jio-card-btn-evidence:hover {
+  background-color: #eaf1fb !important;
+}
+
+/* Empty state */
+.jio-empty-state {
+  grid-column: 1 / -1;
+  background-color: var(--color-primary-20, #e7ebf8);
+  border: 1px dashed var(--color-primary-grey-40, #dce5f8);
+  border-radius: 1rem;
+  padding: 2.5rem;
+  text-align: center;
+  color: var(--color-primary-grey-80, #596780);
+  font-family: JioType, sans-serif;
+  font-size: 0.938rem;
+}
+
+/* ==================== 4. REDIRECTION CARD HIGHLIGHT PULSE ==================== */
+@keyframes jioCardHighlightGlow {
+  0% {
+    box-shadow: 0 0 0 4px #0f3cc9, 0 8px 24px rgba(15, 60, 201, 0.4);
+    border: 2px solid #0f3cc9 !important;
+    transform: scale(1.02);
+  }
+  40% {
+    box-shadow: 0 0 0 6px #0f3cc9, 0 10px 28px rgba(15, 60, 201, 0.45);
+    border: 2px solid #0f3cc9 !important;
+    transform: scale(1.02);
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+    border-color: inherit;
+    transform: scale(1);
+  }
+}
+
+.jio-card-redirect-highlight {
+  animation: jioCardHighlightGlow 1.2s ease-out !important;
+  position: relative !important;
+  z-index: 99 !important;
+  transition: transform 0.2s ease !important;
+  border-radius: 1rem !important;
+}
+
+/* ==================== 5. PREFERENCES FORM ==================== */
+.jio-preferences-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  margin-top: 1.25rem !important;
+  margin-bottom: 1.75rem;
+}
+
+.jio-prefs-row {
+  margin-bottom: 1rem;
+}
+
+.jio-pref-label {
+  display: block;
+  font-family: JioType, sans-serif;
+  font-weight: 700;
+  font-size: 0.938rem;
+  color: #141414;
+  margin-bottom: 0.35rem;
+}
+
+.jio-pref-hint {
+  display: block;
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: var(--jio-text-muted);
+  margin-top: 0.1rem;
+}
+
+.jio-prefs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.jio-pref-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.jio-field-label {
+  font-family: JioType, sans-serif;
+  font-size: 0.813rem;
+  font-weight: 600;
+  color: #141414;
+}
+
+.jio-select-input,
+.jio-text-input {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-family: JioType, sans-serif;
+  font-size: 0.875rem;
+  color: #141414;
+  background-color: #ffffff;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.jio-select-input:focus,
+.jio-text-input:focus {
+  border-color: var(--jio-brand-blue);
+}
+
+.jio-prefs-checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+.jio-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: JioType, sans-serif;
+  font-size: 0.813rem;
+  color: #141414;
+  cursor: pointer;
+}
+
+.jio-checkbox-label input {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.jio-prefs-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.jio-btn-primary,
+#jio-apply-prefs-btn {
+  background-color: rgb(15, 60, 201) !important;
+  color: #ffffff !important;
+  border: 0 !important;
+  border-radius: 20px !important;
+  padding: 0.55rem 1.5rem !important;
+  font-family: JioType, sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 0.875rem !important;
+  cursor: pointer !important;
+  transition: background-color 0.15s ease !important;
+}
+
+.jio-btn-primary:hover,
+#jio-apply-prefs-btn:hover {
+  background-color: #0b2ea3 !important;
+}
+
+.jio-btn-secondary {
+  background-color: #f0f0f0;
+  color: #141414;
+  border: 0;
+  border-radius: 20px;
+  padding: 0.55rem 1.25rem;
+  font-family: JioType, sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.jio-unmet-constraints-box {
+  background-color: #fff9e6;
+  border: 1px solid #ffe58f;
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.jio-unmet-content h4 {
+  margin: 0 0 0.35rem 0;
+  font-family: JioType, sans-serif;
+  font-size: 0.938rem;
+  color: #874d00;
+}
+
+.jio-unmet-content p {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.813rem;
+  color: #613400;
+}
+
+.jio-unmet-tip {
+  font-size: 0.75rem !important;
+  font-style: italic;
+  color: #8c5d00 !important;
+}
+
+/* ==================== 6. NATIVE CATEGORY CARDS DECLUTTERING & UNIFORM THEME ==================== */
+
+/* 1. Reset outer wrappers: completely transparent with NO sharp square outlines or nested frames */
+.Details_detailsCont__2FffM {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-sizing: border-box !important;
+}
+
+.Details_planCard__nJXQV,
+.Details_bodywrap__2dZcm {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+  box-sizing: border-box !important;
+}
+
+/* 2. The ONLY element with background and rounded corners: .Details_planCardBody__T_1ab */
+.Details_planCardBody__T_1ab,
+.Details_planCardBody__T_1ab.Details_radiusChange__2lHfp,
+.Details_planCard__nJXQV .Details_planCardBody__T_1ab {
+  background: var(--color-primary-20, #e7ebf8) !important;
+  background-color: var(--color-primary-20, #e7ebf8) !important;
+  background-image: none !important;
+  border: 1px solid var(--color-primary-grey-40, #dce5f8) !important;
+  border-radius: 1rem !important; /* Original smooth 16px rounded corners */
+  box-shadow: none !important;
+  outline: none !important;
+  padding: 1.15rem 1.25rem !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+}
+
+.Details_bodyhead__3zU8V {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  visibility: visible !important;
+  width: 100% !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.Details_bodyCont__aDv-j,
+.Details_bodyContAuto__3zhbd {
+  display: flex !important;
+  align-items: flex-start !important;
+  visibility: visible !important;
+  gap: 1.5rem !important;
+  margin-bottom: 0.35rem !important;
+}
+
+/* 3. Hide ONLY promotional tag headers (e.g. Canva / Gemini / marketing banners) */
+.Details_planListTagStyle__VojM4,
+[class*="Details_planListTagStyle__"],
+[class*="Tag_animationCont"],
+.Details_detailsCont__2FffM [class*="Details_planListTagStyle"],
+.Details_detailsCont__2FffM [class*="Tag_customModalTagData"],
+.Details_detailsCont__2FffM [class*="Tag_customTagcss"],
+.Details_detailsCont__2FffM div[class*="ImageBadge"],
+.Details_detailsCont__2FffM img[class*="ImageBadge"] {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 4. Hide ALL third-party OTT subscription clutter on native cards ("+2 more OTT", icons) */
+[class*="Details_subscriptionStyle"],
+[class*="Subscriptions_subscription"],
+[class*="Subscriptions_mainCont"],
+[class*="Subscriptions_imagesCont"],
+[class*="Subscriptions_imgs"],
+.Details_subscriptionCon__l5NXn,
+[class*="Details_bodyCont"] > [class*="Details_subscriptionStyle"],
+[class*="Details_bodyCont"] > [class*="Subscriptions_"] {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 5. Eradicate ALL gradient animations, promotional gradient overlays, and theme backgrounds */
+.gradientColorAnim,
+[class*="gradientColorAnim"],
+[class*="Details_gradientColorAfter"]:before,
+[class*="Details_gradientColorAfter"]:after,
+[class*="Details_bodywrap"]:before,
+[class*="Details_bodywrap"]:after,
+[class*="Details_planCardBody"]:before,
+[class*="Details_planCardBody"]:after,
+.Details_detailsCont__2FffM:before,
+.Details_detailsCont__2FffM:after {
+  display: none !important;
+  content: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  background: none !important;
+  background-image: none !important;
+}
+
+/* 6. Uniform Primary Blue Buy Buttons across ALL cards: var(--color-primary-50) #0f3cc9 */
+.Details_btnCont__2WMwu {
+  margin-top: auto !important;
+  width: 100% !important;
+  display: flex !important;
+}
+
+.Details_detailsCont__2FffM .primary.j-button,
+.Details_planCard__nJXQV .primary.j-button,
+.Details_detailsCont__2FffM.Details_goldTheme__1MrGj .primary.j-button,
+.Details_detailsCont__2FffM.Details_goldTheme__1MrGj .j-button,
+.Details_btnCont__2WMwu .primary.j-button,
+.Details_btnCont__2WMwu button {
+  background-color: #0f3cc9 !important;
+  color: #ffffff !important;
+  border: 0 !important;
+  border-radius: 24px !important;
+  font-weight: 700 !important;
+  margin-top: auto !important;
+  width: 100% !important;
+  height: 42px !important;
+  min-height: 42px !important;
+  font-size: 0.938rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: none !important;
+}
+
+.Details_detailsCont__2FffM .primary.j-button:hover,
+.Details_planCard__nJXQV .primary.j-button:hover,
+.Details_detailsCont__2FffM.Details_goldTheme__1MrGj .primary.j-button:hover,
+.Details_btnCont__2WMwu .primary.j-button:hover,
+.Details_btnCont__2WMwu button:hover {
+  background-color: #0b2ea3 !important;
+  color: #ffffff !important;
+}
+
+/* 7. Uniform Primary Blue Chevron Navigation Icon: #0f3cc9 */
+.Details_moreBtnIcon__1ljMD,
+.Details_moreBtnIcon__1ljMD .j-icon,
+.Details_moreBtnIcon__1ljMD svg,
+.Details_moreBtnIcon__1ljMD svg path,
+.Details_detailsCont__2FffM.Details_goldTheme__1MrGj .Details_moreBtnIcon__1ljMD .j-icon,
+.Details_detailsCont__2FffM.Details_goldTheme__1MrGj .Details_moreBtnIcon__1ljMD svg,
+.Details_detailsCont__2FffM.Details_goldTheme__1MrGj .Details_moreBtnIcon__1ljMD svg path {
+  color: #0f3cc9 !important;
+  fill: #0f3cc9 !important;
+}
+
+/* ==================== 7. COMPACT VALUE INFORMATION SECTION ON NATIVE CARDS ==================== */
+
+.jio-native-card-addon {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  margin-top: 0.15rem !important;
+  box-sizing: border-box !important;
+}
+
+/* Subtle Divider: var(--color-primary-grey-40) #dce5f8 */
+.jio-native-divider {
+  border: none !important;
+  border-top: 1px solid var(--color-primary-grey-40, #dce5f8) !important;
+  margin: 0.65rem 0 0.55rem 0 !important;
+  width: 100% !important;
+  height: 0 !important;
+  display: block !important;
+}
+
+/* Single compact row: Effective daily cost + Value & Transparency Badges */
+.jio-native-info-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 0.45rem !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.jio-native-daily-cost {
+  font-family: JioType, helvetica, arial, sans-serif !important;
+  font-size: 0.938rem !important;
+  font-weight: 700 !important;
+  color: var(--color-primary-grey-100, #141414) !important;
+  line-height: 1.2 !important;
+  white-space: nowrap !important;
+}
+
+.jio-native-badges-col {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.35rem !important;
+  white-space: nowrap !important;
+}
+
+/* Understated blue/green score badges */
+.jio-native-pill {
+  font-family: JioType, helvetica, arial, sans-serif !important;
+  font-size: 0.688rem !important;
+  font-weight: 700 !important;
+  padding: 0.2rem 0.5rem !important;
+  border-radius: 9999px !important;
+  letter-spacing: 0.02em !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  line-height: 1.2 !important;
+}
+
+.jio-native-pill-value {
+  background-color: #e1edfe !important;
+  border: 1px solid #c2dafb !important;
+  color: #0f3cc9 !important;
+}
+
+.jio-native-pill-transparency {
+  background-color: #eaf6ee !important;
+  border: 1px solid #c4e7cf !important;
+  color: #157330 !important;
+}
+
+/* Concise, unboxed insight text (no nested outline or bordered container) */
+.jio-native-insight-text {
+  font-family: JioType, helvetica, arial, sans-serif !important;
+  font-size: 0.75rem !important;
+  color: var(--color-primary-grey-80, #596780) !important;
+  line-height: 1.35 !important;
+  font-weight: 500 !important;
+  margin-bottom: 0.75rem !important;
+  min-height: 32px !important;
+  max-height: 32px !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  cursor: pointer !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+}
+
+/* Scoped rule for when extension tabs are active: hide native plan containers and filters while preserving headingCategory */
+/* Scoped rule for when extension tabs are active: hide native plan containers, headings, and filters */
+body.jio-extension-tab-active .Filter04_padding__1fe3M > :not(#jio-intelligence-view-container),
+body.jio-extension-tab-active .Filter04_planContainer__2Dhku,
+body.jio-extension-tab-active #planContainer,
+body.jio-extension-tab-active #headingCategory,
+body.jio-extension-tab-active .Filter04_headingCategory__1ceRj:not(.jio-view-header-row),
+body.jio-extension-tab-active .Filter04_filterTagBtns__3mOg0,
+body.jio-extension-tab-active .Filter04_mobscroll__TIhiB {
+  display: none !important;
+}
+
+/* In-place score chip definitions (retained for reference) */
+.jio-scores-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.jio-score-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-family: JioType, sans-serif;
+}
+
+.jio-value-chip {
+  background-color: #eaf1fb;
+  border: 1px solid #c8d4f4;
+  color: var(--jio-brand-blue);
+}
+
+.jio-transparency-chip {
+  background-color: #f1f8f3;
+  border: 1px solid #cce8d4;
+  color: #135610;
+}
+
+.jio-score-label {
+  font-size: 0.625rem;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+.jio-score-value {
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.jio-evidence-btn {
+  margin-left: auto;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid #e0e0e0;
+  background: #ffffff;
+  color: var(--jio-brand-blue);
+  font-weight: 700;
+  font-size: 0.75rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jio-evidence-btn:hover {
+  background-color: var(--jio-brand-blue);
+  color: #ffffff;
+}
+
+/* ==================== 7. EVIDENCE MODAL ==================== */
+.jio-modal-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background-color: rgba(15, 23, 42, 0.72) !important;
+  backdrop-filter: blur(5px) !important;
+  -webkit-backdrop-filter: blur(5px) !important;
+  z-index: 999999 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 1.5rem !important;
+  box-sizing: border-box !important;
+}
+
+.jio-modal-dialog {
+  background-color: #ffffff !important;
+  border-radius: 1rem !important;
+  max-width: 680px !important;
+  width: 100% !important;
+  max-height: 88vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 0, 0, 0.08) !important;
+  overflow: hidden !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+  animation: jioModalZoom 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+@keyframes jioModalZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.jio-modal-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #eef2fa !important;
+  padding: 1.35rem 1.6rem 1.15rem 1.6rem !important;
+  flex-shrink: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.jio-modal-header-text {
+  flex: 1 1 auto !important;
+  padding-right: 1.25rem !important;
+}
+
+.jio-modal-header h3,
+#jio-evidence-title {
+  font-family: JioType, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 1.25rem !important;
+  font-weight: 800 !important;
+  color: #141414 !important;
+  margin: 0 0 0.35rem 0 !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.015em !important;
+}
+
+.jio-modal-subtitle {
+  font-family: JioType, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 0.813rem !important;
+  font-weight: 500 !important;
+  color: #595959 !important;
+  margin: 0 !important;
+  line-height: 1.4 !important;
+}
+
+.jio-modal-close {
+  width: 34px !important;
+  height: 34px !important;
+  border-radius: 50% !important;
+  background-color: #f1f4fb !important;
+  border: 1px solid #e1e7f5 !important;
+  font-size: 1.4rem !important;
+  line-height: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #596780 !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  flex-shrink: 0 !important;
+  padding: 0 !important;
+  outline: none !important;
+}
+
+.jio-modal-close:hover {
+  background-color: #e2e8f8 !important;
+  color: #141414 !important;
+  transform: scale(1.06) !important;
+}
+
+.jio-modal-content {
+  background-color: #ffffff !important;
+  border-radius: 0 !important;
+  max-width: none !important;
+  width: 100% !important;
+  flex: 1 1 auto !important;
+  overflow-y: auto !important;
+  box-shadow: none !important;
+  padding: 1.5rem 1.6rem !important;
+  box-sizing: border-box !important;
+  scrollbar-width: thin !important;
+  scrollbar-color: #c4d1f0 transparent !important;
+}
+
+.jio-modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.jio-modal-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.jio-modal-content::-webkit-scrollbar-thumb {
+  background-color: #c4d1f0;
+  border-radius: 3px;
+}
+
+.jio-modal-section {
+  margin-bottom: 1.5rem !important;
+}
+
+.jio-modal-section:last-child {
+  margin-bottom: 0 !important;
+}
+
+.jio-modal-section h4 {
+  font-family: JioType, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 0.813rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  color: #0f3cc9 !important;
+  letter-spacing: 0.04em !important;
+  margin: 0 0 0.75rem 0 !important;
+}
+
+.jio-norm-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)) !important;
+  gap: 0.75rem !important;
+  background-color: #f7f9fd !important;
+  border: 1px solid #e3eaf8 !important;
+  padding: 0.95rem 1.15rem !important;
+  border-radius: 10px !important;
+}
+
+.jio-norm-item {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.2rem !important;
+}
+
+.jio-norm-label {
+  font-size: 0.719rem !important;
+  font-weight: 600 !important;
+  color: #596780 !important;
+}
+
+.jio-norm-val {
+  font-family: JioType, sans-serif !important;
+  font-size: 1.05rem !important;
+  font-weight: 800 !important;
+  color: #0f3cc9 !important;
+  letter-spacing: -0.01em !important;
+}
+
+.jio-norm-note {
+  font-size: 0.688rem !important;
+  color: #64748b !important;
+  margin: 0.5rem 0 0 0 !important;
+  font-style: italic !important;
+  line-height: 1.35 !important;
+}
+
+.jio-modal-list {
+  margin: 0 !important;
+  padding: 0.85rem 1.15rem 0.85rem 2.2rem !important;
+  font-size: 0.813rem !important;
+  color: #1e293b !important;
+  line-height: 1.55 !important;
+  background-color: #fafbfe !important;
+  border: 1px solid #eef2fa !important;
+  border-radius: 10px !important;
+  box-sizing: border-box !important;
+}
+
+.jio-modal-list li {
+  margin-bottom: 0.4rem !important;
+}
+
+.jio-modal-list li:last-child {
+  margin-bottom: 0 !important;
+}
+
+.jio-modal-empty {
+  font-size: 0.813rem !important;
+  color: #64748b !important;
+  font-style: italic !important;
+  margin: 0 !important;
+}
+
+.jio-evidence-cards {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.85rem !important;
+}
+
+.jio-evidence-card {
+  border: 1px solid #dce5f8 !important;
+  border-radius: 10px !important;
+  padding: 0.95rem 1.15rem !important;
+  background-color: #fafbfe !important;
+  box-sizing: border-box !important;
+  transition: border-color 0.15s ease !important;
+}
+
+.jio-evidence-card:hover {
+  border-color: #b5cbf8 !important;
+}
+
+.jio-evidence-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center;
+  margin-bottom: 0.35rem;
+}
+
+.jio-evidence-badge {
+  font-size: 0.625rem;
+  font-weight: 700;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.jio-evidence-badge.officially_verified {
+  background-color: #e6f7ff !important;
+  color: #0050b3 !important;
+  border: 1px solid #91d5ff !important;
+}
+
+.jio-evidence-badge.regulatory_source {
+  background-color: #f6ffed !important;
+  color: #389e0d !important;
+  border: 1px solid #b7eb8f !important;
+}
+
+.jio-evidence-badge.community_reported {
+  background-color: #fffbe6 !important;
+  color: #d48806 !important;
+  border: 1px solid #ffe58f !important;
+}
+
+.jio-evidence-badge.conflicting_evidence,
+.jio-evidence-badge.conflicting {
+  background-color: #fff2e8 !important;
+  color: #d4380d !important;
+  border: 1px solid #ffbb96 !important;
+}
+
+.jio-evidence-badge.unverified,
+.jio-evidence-badge.unknown {
+  background-color: #f5f5f5 !important;
+  color: #595959 !important;
+  border: 1px solid #d9d9d9 !important;
+}
+
+.jio-evidence-publisher {
+  font-size: 0.688rem;
+  color: var(--jio-text-muted);
+}
+
+.jio-evidence-item-title {
+  font-size: 0.844rem;
+  font-weight: 700;
+  color: #141414;
+  margin: 0 0 0.35rem 0;
+}
+
+.jio-evidence-source {
+  font-size: 0.719rem;
+  color: #1e3a8a;
+  margin: 0 0 0.4rem 0;
+  padding: 0.2rem 0.45rem;
+  background-color: #edf2fc;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.jio-evidence-source-label {
+  font-weight: 700;
+}
+
+.jio-evidence-source-val {
+  font-weight: 500;
+}
+
+.jio-evidence-summary {
+  font-size: 0.75rem;
+  color: #333333;
+  line-height: 1.4;
+  margin: 0 0 0.4rem 0;
+}
+
+.jio-evidence-excerpt {
+  margin: 0.4rem 0;
+  padding: 0.4rem 0.65rem;
+  background-color: #f0f4fd;
+  border-left: 3px solid #0f3cc9;
+  font-size: 0.719rem;
+  font-style: italic;
+  color: #334155;
+  line-height: 1.35;
+  border-radius: 0 4px 4px 0;
+}
+
+.jio-evidence-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.688rem;
+  margin-top: 0.4rem;
+  padding-top: 0.35rem;
+  border-top: 1px solid #eef2fa;
+}
+
+.jio-evidence-date {
+  color: var(--jio-text-muted);
+}
+
+.jio-evidence-link {
+  color: #0f3cc9 !important;
+  text-decoration: none;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.jio-evidence-link:hover {
+  text-decoration: underline;
+}
+
+.jio-evidence-unverified-tag {
+  color: #8c8c8c;
+  font-style: italic;
+  font-size: 0.688rem;
+}
